@@ -35,9 +35,9 @@ A documentação dos endpoints da API pode ser consultada através da seguinte u
 # Estrutura do Projeto
 
 Com o intuito de tornar a separação de responsabilidades um pouco mais "óbvia" o projeto foi subdividido em três módulos 
-principais: **api**, **application** e **database**. O _módulo api_ é o responsável por inicializar todo o projeto, é 
+principais: **inbound**, **application** e **outbound**. O _módulo inbound_ é o responsável por inicializar todo o projeto, é 
 aquele que contém a classe "Main" carregada pelo Spring, 
-e tem como objetivo prover a interface de entrada/saída para os consumidores da API. O _módulo database_, como o nome 
+e tem como objetivo prover a interface de entrada/saída para os consumidores da API. O _módulo outbound, como o nome 
 sugere, está responsável pela interação com banco de dados e nesse módulo estão todas as classes responsáveis por 
 efetuar as operações de CRUD. Por fim
 _o módulo application_ é onde estão implementadas as características do negócio, nesse caso, tudo o que descreve a 

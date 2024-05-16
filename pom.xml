@@ -16,9 +16,9 @@
 	<name>tech-challenge-lanchonete</name>
 	<description>Tech Challenge Pós FIAP | Lanchonete</description>
 	<modules>
+		<module>inbound</module>
 		<module>application</module>
-		<module>api</module>
-        <module>database</module>
+        <module>outbound</module>
     </modules>
 
 	<properties>

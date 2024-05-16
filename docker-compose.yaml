@@ -1,8 +1,8 @@
 version: '3'
 
 services:  
-  api-pagamento:
-    container_name: 'api-pagamento-lanchonete'
+  microservico-pagamento:
+    container_name: 'microservico-pagamento-lanchonete'
     build: .
     volumes:
       - './:/app'
