@@ -8,6 +8,6 @@ import br.com.edu.fiap.techchallengelanchonete.domain.valueobject.Codigo;
 public interface IPagamentoPersistence {
 
     Optional<Pagamento> consultaPagamentoPorCodigoPedido(Codigo codigoPedido);
-    void salvaPagamento(Pagamento pagamento);
+    Pagamento salvaPagamento(Pagamento pagamento);
 
 }

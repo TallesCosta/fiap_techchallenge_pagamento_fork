@@ -27,8 +27,8 @@ public class PagamentoAdapterJPA implements IPagamentoPersistence {
     }
 
     @Override
-    public void salvaPagamento(Pagamento pagamento) {
-        this.repository.save(adapter.toModel(pagamento));
+    public Pagamento salvaPagamento(Pagamento pagamento) {
+        return this.repository.save(adapter.toModel(pagamento));
     }
 
 }
