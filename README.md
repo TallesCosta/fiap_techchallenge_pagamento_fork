@@ -1,4 +1,4 @@
-# FIAP Tech Challenge | Pós Tech
+# Microserviço de Pagamento - FIAP Tech Challenge | Pós Tech
 
 Projeto de Gestão de Pedidos para uma lanchonete desenvolvido para avaliação do curso de Pós-graduação em Arquitetura 
 de Software da FIAP.
@@ -115,3 +115,7 @@ Para verificar a cobertura de testes utilizados a ferramente JaCoCo integrada ao
 ```
 .\mvnw -f .\application\pom.xml clean test jacoco:report
 ```
+
+# Referências
+
+Este projeto segue as diretrizes da [SemVer](https://semver.org/).
