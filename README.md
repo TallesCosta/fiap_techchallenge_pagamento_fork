@@ -113,7 +113,7 @@ porta diferente ajuste a url de acordo.
 
 Para verificar a cobertura de testes utilizados a ferramente JaCoCo integrada ao Maven, para gerar o relatório de cobertura de testes basta executar:
 ```
-.\mvnw -f .\application\pom.xml clean test jacoco:report
+.\mvnw -f .\pom.xml clean verify
 ```
 
 # Referências
