@@ -21,17 +21,17 @@ public class PagamentoUseCase {
     private IGatewayPagamentoRegistrador gatewayPagamentoRegistrador;
     private IOrdemCompraProcessadaPublisher ordemCompraProcessadaPublisher;
 
-    public void registraPagamento(OrdemCompra ordemCompra) {
+    public Pagamento registraPagamento(OrdemCompra ordemCompra) {
         var pagamento = this.gatewayPagamentoRegistrador.registroPagamento(ordemCompra);
 
-        this.pagamentoPersistence.salvaPagamento(pagamento);
+        return this.pagamentoPersistence.salvaPagamento(pagamento);
     }
 
-    public void confirmacaoPagamento(Codigo codigoPedido, StatusPagamento statusPagamento) {
+    public Pagamento confirmacaoPagamento(Codigo codigoPedido, StatusPagamento statusPagamento) {
         var optionalPagamento = this.consultaPagamento(codigoPedido);
 
         if (!optionalPagamento.isPresent())
-            throw new NotFoundResourceException("Pedido não encontrado!");
+            throw new NotFoundResourceException("Pagamento não encontrado!");
 
         var pagamento = optionalPagamento.get();
         pagamento.setStatus(statusPagamento);
@@ -43,6 +43,8 @@ public class PagamentoUseCase {
         } catch (IOException ex) {
             throw new ApplicationException("Erro ao tentar notificar fila de pagamentos processados");
         }
+
+        return pagamento;
     }
 
     public Optional<Pagamento> consultaPagamento(Codigo codigoPedido) {

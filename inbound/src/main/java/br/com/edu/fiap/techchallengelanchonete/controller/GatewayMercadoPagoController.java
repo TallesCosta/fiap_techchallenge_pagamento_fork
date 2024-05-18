@@ -1,5 +1,6 @@
 package br.com.edu.fiap.techchallengelanchonete.controller;
 
+import br.com.edu.fiap.techchallengelanchonete.domain.Pagamento;
 import br.com.edu.fiap.techchallengelanchonete.domain.StatusPagamento;
 import br.com.edu.fiap.techchallengelanchonete.domain.valueobject.Codigo;
 import br.com.edu.fiap.techchallengelanchonete.integration.gatewaypagamento.IGatewayPagamentoConfirmacao;
@@ -43,7 +44,7 @@ public class GatewayMercadoPagoController implements IGatewayPagamentoConfirmaca
     }
 
     @Override
-    public void confirmacaoPagamento(Codigo codigoPedido, StatusPagamento statusPagamento) {
-        this.pagamentoUseCase.confirmacaoPagamento(codigoPedido, statusPagamento);
+    public Pagamento confirmacaoPagamento(Codigo codigoPedido, StatusPagamento statusPagamento) {
+        return this.pagamentoUseCase.confirmacaoPagamento(codigoPedido, statusPagamento);
     }
 }
