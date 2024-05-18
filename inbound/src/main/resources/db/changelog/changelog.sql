@@ -14,3 +14,8 @@ CREATE TABLE public.pagamentos (
 );
 -- rollback DROP TABLE public.pagamentos;
 
+-- chamgeset talles.costa:2
+ALTER TABLE public.pagamentos RENAME COLUMN pixqrcode64 TO pix_qrcode_base64;
+ALTER TABLE public.pagamentos RENAME COLUMN pix_copiaecola TO pix_copia_e_cola;
+-- roolback ALTER TABLE public.pagamentos RENAME COLUMN pix_qrcode_base64 TO pixqrcode64;
+-- roolback ALTER TABLE public.pagamentos RENAME COLUMN pix_copia_e_cola TO pix_copiaecola;
