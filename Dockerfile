@@ -1,15 +1,15 @@
-FROM openjdk:17-alpine3.14 as builder
+FROM openjdk:21-ea-slim as builder
 
 RUN mkdir /app
 WORKDIR /app
 
-RUN apk update && apk upgrade
-RUN apk --no-cache add maven
+RUN apt update
+RUN apt install maven -y
 COPY . .
 RUN mvn clean package -DskipTests
 
 
-FROM openjdk:17-alpine3.14 as release
+FROM openjdk:21-ea-slim as release
 RUN mkdir /release
 WORKDIR /release
 
