@@ -4,6 +4,7 @@ import br.com.edu.fiap.techchallengelanchonete.adapter.model.PagamentoAdapterMod
 import br.com.edu.fiap.techchallengelanchonete.domain.Pagamento;
 import br.com.edu.fiap.techchallengelanchonete.domain.valueobject.Codigo;
 import br.com.edu.fiap.techchallengelanchonete.infrastructure.IPagamentoPersistence;
+import jakarta.transaction.Transactional;
 
 import java.util.Optional;
 
@@ -19,6 +20,7 @@ public class PagamentoAdapterJPA implements IPagamentoPersistence {
         this.adapter = adapter;
     }
 
+    @Transactional
     @Override
     public Optional<Pagamento> consultaPagamentoPorCodigoPedido(Codigo codigoPedido) {
         return this.repository
@@ -26,6 +28,7 @@ public class PagamentoAdapterJPA implements IPagamentoPersistence {
                 .map(adapter::toDomain);
     }
 
+    @Transactional
     @Override
     public Pagamento salvaPagamento(Pagamento pagamento) {
         return adapter.toDomain(this.repository.save(adapter.toModel(pagamento)));
