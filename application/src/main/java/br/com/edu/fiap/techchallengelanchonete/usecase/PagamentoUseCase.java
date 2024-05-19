@@ -39,7 +39,7 @@ public class PagamentoUseCase {
         this.pagamentoPersistence.salvaPagamento(pagamento);
 
         try {
-            this.ordemCompraProcessadaPublisher.publica(pagamento, "PAGAMENTO_PROCESSADO");
+            this.ordemCompraProcessadaPublisher.publica(pagamento, "PAGAMENTOS_PROCESSADOS");
         } catch (IOException ex) {
             throw new ApplicationException("Erro ao tentar notificar fila de pagamentos processados");
         }
