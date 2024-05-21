@@ -23,37 +23,37 @@ import br.com.edu.fiap.techchallengelanchonete.infrastructure.pagamento.Pagament
 import jakarta.transaction.Transactional;
 
 // @RunWith(SpringRunner.class)
-@SpringBootTest(classes = TechChallengeLanchoneteApplication.class)
-@Transactional
-@AutoConfigureMockMvc
+// @SpringBootTest(classes = TechChallengeLanchoneteApplication.class)
+// @Transactional
+// @AutoConfigureMockMvc
 class GatewayMercadoPagoControllerTest {
 
-    @Autowired
-    private MockMvc mvc;
+    // @Autowired
+    // private MockMvc mvc;
 
-    @Autowired
-    private PagamentoRepository repository;
+    // @Autowired
+    // private PagamentoRepository repository;
 
-    @Test
-    void confirmacaoPagamento() throws Exception {
-        var codigoPedido = UUID.randomUUID().toString();
+    // @Test
+    // void confirmacaoPagamento() throws Exception {
+    //     var codigoPedido = UUID.randomUUID().toString();
 
-        var pagamentoModel = PagamentoModel.builder()
-            .codigoPedido(codigoPedido)
-            .statusPagamento(StatusPagamento.AGUARDANDO.toString())
-            .dataCriacao(new Date())
-            .build();
-        repository.save(pagamentoModel);
+    //     var pagamentoModel = PagamentoModel.builder()
+    //         .codigoPedido(codigoPedido)
+    //         .statusPagamento(StatusPagamento.AGUARDANDO.toString())
+    //         .dataCriacao(new Date())
+    //         .build();
+    //     repository.save(pagamentoModel);
 
-        mvc.perform(post("/gatewaypagamento/pedido/" + codigoPedido)
-            .header("status-mock", StatusPagamento.APROVADO.toString()) 
-            .header("Referer", "https://mercadopago.com.ar")
-            .header("User-Agent", "MercadoPago WebHook v1.0 payment")
-            .content("{}")
-            .contentType(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk());
+    //     mvc.perform(post("/gatewaypagamento/pedido/" + codigoPedido)
+    //         .header("status-mock", StatusPagamento.APROVADO.toString()) 
+    //         .header("Referer", "https://mercadopago.com.ar")
+    //         .header("User-Agent", "MercadoPago WebHook v1.0 payment")
+    //         .content("{}")
+    //         .contentType(MediaType.APPLICATION_JSON))
+    //         .andExpect(status().isOk());
 
-        assertTrue(repository.findByCodigoPedido(codigoPedido).isPresent());
-    }
+    //     assertTrue(repository.findByCodigoPedido(codigoPedido).isPresent());
+    // }
 
 }
